@@ -60,6 +60,19 @@ Agent 会读取仓库、找到 `human-writing`，完成安装。装好之后显�
 使用 $human-writing，把我的材料写成一篇有活人感和中文韵律的作品。
 ```
 
+## 可选的译文保真模式
+
+原创写作继续使用原有流程和默认检查命令。翻译或历史著作译文润色时，明确使用 `translation` 模式，按 [保真流程](./human-writing/references/translation-fidelity.md) 提供原文、原段号、润色前译文与项目术语表。原文的否定对照、排比、引语、标点和重复不作为模型腔删除。
+
+```bash
+python3 human-writing/scripts/check_prose.py 候选译文.md --mode translation --baseline 润色前译文.md --manifest 对齐清单.json
+python3 -m unittest discover -s tests -v
+```
+
+保真检查只读文件。任何改动都以退出码 1 列为待复核，机械约束违规同样退出 1；输入缺失或错版退出 2。只有与基线相同且机械约束通过时退出 0，这不证明基线翻译准确。自动检测不能证明语义等价，不提供绕过人工对照原文的自动放行开关。
+
+风险逐项审查和中英文验证见 [兼容性审查](./docs/translation-audit.md)。
+
 ## 1.1.0 改了什么
 
 1.0 用字符串禁令拦 AI 味——禁「不是……而是……」、禁冒号、禁一批黑话。有效，但模型会换一套字面继续做同样的事。「你以为……其实……」「回头才发现」和「不是A而是B」是同一个姿势，读者认的是姿势，不是字。
