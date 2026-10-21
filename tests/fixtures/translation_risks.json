@@ -1,0 +1,146 @@
+[
+  {
+    "id": "R01",
+    "rule": "否定对照",
+    "source": "This was not a tax but a gift: a distinction the council insisted upon.",
+    "before": "这不是税，而是赠礼：市议会坚持这一区别。",
+    "unsafe": "这是一份赠礼。",
+    "risk": "删去税与赠礼的制度边界及证据主体"
+  },
+  {
+    "id": "R02",
+    "rule": "引语转述",
+    "source": "The witness said, “I paid, I waited, I appealed—and no one answered.”[7]",
+    "before": "证人说：“我付了钱，我等着，我申诉了——没有人回答。”[7]",
+    "unsafe": "证人说他申诉无门。[7]",
+    "risk": "丢失付款、等待、叙述人声及修辞"
+  },
+  {
+    "id": "R03",
+    "rule": "三项排比",
+    "source": "They seized our grain, they seized our cattle, they seized our children.",
+    "before": "他们夺走我们的粮食，他们夺走我们的牲畜，他们夺走我们的孩子。",
+    "unsafe": "他们夺走我们的粮食和牲畜。",
+    "risk": "按两项上限删掉孩子会删去暴力事实"
+  },
+  {
+    "id": "R04",
+    "rule": "抽象比喻",
+    "source": "Fear kept the town silent; the old order was crumbling.",
+    "before": "恐惧使城镇沉默；旧秩序正在坍塌。",
+    "unsafe": "城镇无人说话，秩序发生变化。",
+    "risk": "削弱因果与作者评价强度"
+  },
+  {
+    "id": "R05",
+    "rule": "否定范围",
+    "source": "Not all officials accepted gifts.",
+    "before": "并非所有官员都接受赠礼。",
+    "unsafe": "所有官员都不接受赠礼。",
+    "risk": "not all 与 all not 的范围不同"
+  },
+  {
+    "id": "R06",
+    "rule": "限定连词",
+    "source": "Although he paid, he obtained no office; only if the council agreed could he appeal.",
+    "before": "虽然他付了钱，却没有获得官职；只有市议会同意，他才能申诉。",
+    "unsafe": "他付了钱，没有获得官职，可以申诉。",
+    "risk": "删连词丢失必要条件"
+  },
+  {
+    "id": "R07",
+    "rule": "推测归属",
+    "source": "It may have been tolerated, according to one witness, although the register is silent.",
+    "before": "据一位证人说，这也许曾获容忍，尽管登记簿没有记载。",
+    "unsafe": "这种做法受到容忍。",
+    "risk": "推测被升级为定论且删除来源限制"
+  },
+  {
+    "id": "R08",
+    "rule": "认识修正",
+    "source": "I believed the levy lawful; later I discovered that the charter forbade it.",
+    "before": "我原以为这项征收合法，后来才发现特许状禁止它。",
+    "unsafe": "特许状禁止这项征收。",
+    "risk": "自述的认识过程与时间性丢失"
+  },
+  {
+    "id": "R09",
+    "rule": "历史术语",
+    "source": "The sawdust man employed a panel game, while the panel thief watched the bag.",
+    "before": "假钞骗子使用暗板局，暗板贼盯着皮包。",
+    "unsafe": "锯末工玩面板游戏，骗子盯着皮包。",
+    "risk": "词面翻译和泛称破坏项目译名"
+  },
+  {
+    "id": "R10",
+    "rule": "名词化",
+    "source": "The sale of offices and the exercise of jurisdiction were distinct rights.",
+    "before": "官职买卖与司法管辖权的行使是不同的权利。",
+    "unsafe": "有人卖官，有人审案。",
+    "risk": "概念分类被改成几个人的具体动作"
+  },
+  {
+    "id": "R11",
+    "rule": "结构重复",
+    "source": "The gift was lawful. I repeat: the gift was lawful, though the demand was not.",
+    "before": "赠礼是合法的。我再说一遍：赠礼是合法的，尽管索取赠礼并不合法。",
+    "unsafe": "赠礼是合法的。",
+    "risk": "删重复连带删除主动赠予与索取的区别"
+  },
+  {
+    "id": "R12",
+    "rule": "背景删减",
+    "source": "The office was hereditary. Under the old charter, daughters too could inherit it.",
+    "before": "这个官职可以世袭。根据旧特许状，女儿也可以继承。",
+    "unsafe": "这个官职可以世袭。",
+    "risk": "背景信息涉及继承制度，不是可任意压缩的常识"
+  },
+  {
+    "id": "R13",
+    "rule": "作者总结",
+    "source": "Thus the practice survived: law and custom protected it.",
+    "before": "因此，这种做法延续了下来：法律和习惯保护着它。",
+    "unsafe": "这种做法延续了下来。",
+    "risk": "结尾总结中的因果解释被删"
+  },
+  {
+    "id": "R14",
+    "rule": "感情解释",
+    "source": "He shut the door. He was afraid, not of the soldiers, but of his neighbours.",
+    "before": "他关上门。他害怕的不是士兵，而是他的邻居。",
+    "unsafe": "他关上门。",
+    "risk": "动作后解释含恐惧对象，不能因留白删除"
+  },
+  {
+    "id": "R15",
+    "rule": "路标限定",
+    "source": "In a certain sense, the gift was compulsory.",
+    "before": "从某种意义上说，这份赠礼是强制性的。",
+    "unsafe": "这份赠礼是强制性的。",
+    "risk": "清路标会消除论断限定"
+  },
+  {
+    "id": "R16",
+    "rule": "正式词义",
+    "source": "The methodology of this study distinguishes statements from inferences.",
+    "before": "本研究的方法论区分陈述与推断。",
+    "unsafe": "本研究讲述事实。",
+    "risk": "语境词不能因黑话嫌疑变成不同概念"
+  },
+  {
+    "id": "R17",
+    "rule": "数字注号",
+    "source": "In 1750 he paid 30 livres, not 300.[12]",
+    "before": "1750年，他付了30里弗尔，并非300里弗尔。[12]",
+    "unsafe": "1750年，他付了300里弗尔。",
+    "risk": "数字对比、货币与注号均受损"
+  },
+  {
+    "id": "R18",
+    "rule": "第一人称插入",
+    "source": "The record contains no statement of motive.",
+    "before": "档案中没有记载动机。",
+    "unsafe": "我把档案查了一遍，没有找到动机。",
+    "risk": "新增译者检索经历冒充作者原话"
+  }
+]

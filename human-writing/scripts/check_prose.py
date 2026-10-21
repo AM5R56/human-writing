@@ -388,7 +388,20 @@ def read_text(path: str) -> str:
 def main() -> int:
     parser = argparse.ArgumentParser(description="检查中文成稿的硬禁令与模型化形状")
     parser.add_argument("path", help="Markdown 或文本文件路径。使用 - 从标准输入读取")
+    parser.add_argument("--mode", choices=("creative", "translation"), default="creative",
+                        help="默认 creative 保持原检查；translation 只检查保真约束")
+    parser.add_argument("--baseline", help="润色前的中文译文，仅用于 translation")
+    parser.add_argument("--manifest", help="原文对齐、术语及保护范围 JSON，仅用于 translation")
+    parser.add_argument("--json", action="store_true", help="输出保真检查 JSON，仅用于 translation")
     args = parser.parse_args()
+
+    if args.mode == "translation":
+        if not args.baseline or not args.manifest:
+            parser.error("translation 必须提供 --baseline 和 --manifest，缺少资料不能降级为创作检查")
+        from check_translation import run
+        return run(args.path, args.baseline, args.manifest, args.json)
+    if args.baseline or args.manifest or args.json:
+        parser.error("--baseline、--manifest、--json 只适用于 --mode translation")
 
     try:
         text = read_text(args.path)

@@ -60,6 +60,29 @@ Agent 会读取仓库、找到 `human-writing`，完成安装。装好之后显�
 使用 $human-writing，把我的材料写成一篇有活人感和中文韵律的作品。
 ```
 
+## 可选的译文保真模式
+
+原创写作继续使用原有流程和默认检查命令。翻译或历史著作译文润色时，明确使用 `translation` 模式，按 [保真流程](./human-writing/references/translation-fidelity.md) 提供原文、原段号、润色前译文与项目术语表。原文的否定对照、排比、引语、标点和重复不作为模型腔删除。
+
+```bash
+python3 human-writing/scripts/check_prose.py 候选译文.md --mode translation --baseline 润色前译文.md --manifest 对齐清单.json
+python3 -m unittest discover -s tests -v
+```
+
+保真检查只读文件。任何改动都以退出码 1 列为待复核，机械约束违规同样退出 1；输入缺失或错版退出 2。只有与基线相同且机械约束通过时退出 0，这不证明基线翻译准确。自动检测不能证明语义等价，不提供绕过人工对照原文的自动放行开关。
+
+风险逐项审查和中英文验证见 [兼容性审查](./docs/translation-audit.md)。
+
+## 自动回归测试
+
+[Tests 工作流](./.github/workflows/tests.yml) 在 Pull Request 创建、提交更新、重新打开，以及 `main`、`translation-fidelity-mode` 分支收到提交时运行；Draft PR 也执行测试。环境固定为 Ubuntu 24.04 和 Python 3.12，仅使用 Python 标准库，无需安装测试依赖或配置 Secrets。
+
+从仓库根目录运行 `python -m unittest discover -s tests -v`，统一执行 translation 检查、creative 原版 stdout/stderr/退出码快照比较，以及 translation 命令行退出码和只读行为验证。新增测试沿用 `tests/test_*.py` 命名和 unittest 约定；子目录需可被 unittest 发现（Python 3.12 中须有 `__init__.py`），即可进入同一流程，无需逐个修改工作流。
+
+复现 CI 结果请使用上述 Linux 环境。现有命令行测试通过 `Path.write_text()` 写入临时基线，Windows 会转换为 CRLF，导致文件字节哈希与测试清单中的 LF 哈希不同；本工作流保留测试原样，不据此声称 Windows 测试通过。
+
+工作流令牌仅授予 `contents: read`，检出后不保留 Git 凭据，官方 Actions 固定到完整提交 SHA。若仓库禁用了 Actions，需在 Settings → Actions → General 启用，并允许 `actions/checkout` 和 `actions/setup-python`。若要将测试作为合并的强制条件，可在分支规则中要求 `unittest (Python 3.12)` 检查通过。
+
 ## 1.1.0 改了什么
 
 1.0 用字符串禁令拦 AI 味——禁「不是……而是……」、禁冒号、禁一批黑话。有效，但模型会换一套字面继续做同样的事。「你以为……其实……」「回头才发现」和「不是A而是B」是同一个姿势，读者认的是姿势，不是字。
